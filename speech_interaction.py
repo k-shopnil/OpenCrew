@@ -66,12 +66,13 @@ def m_indx():
 
 
 def m_indxp():
-    global f
+    global fd
     music_dir = 'D:\\Music'
     for f in os.listdir(music_dir):
         if f.endswith(".mp3"):
-            (os.path.join(music_dir, f))
-    return os.path.join(music_dir, f[4])
+
+            fd = os.path.join(music_dir, f)
+    return os.path.join(music_dir, fd[4])
 
 
 if __name__ == '__main__':
@@ -104,22 +105,20 @@ if __name__ == '__main__':
             else:
                 speak("As you wish.")
                 continue
-
-        elif 'stop' in query:
+        elif 'stop' or 'shutdown' in query:
             print("Alright")
             speak("Alright.")
             break
-
         elif "your name" in query:
-            speak("My name is Sigrun. And I am a part of the project Open Crew.")
+            speak("My name is Sigrun. And I am a part of the project OpenCrew.")
 
         elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%I : %M %p")
             print(strTime)
             speak(f"It's {strTime} right now.")
 
-        elif 'hi' or 'hello' or 'hey' in query:
-            speak("Hello, sir. How may I help you?")
+        elif 'hello' or 'hey' in query:
+            speak("Hello sir. How may I help you?")
 
 
 
