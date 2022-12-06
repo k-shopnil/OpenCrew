@@ -69,11 +69,14 @@ def m_indx():
 def m_indxp():
     music_dir = 'D:\\Music'
     mplist = []
+    counter = 0
     for f in os.listdir(music_dir):
         if f.endswith(".mp3"):
             mplist.append(os.path.join(music_dir, f))
-            #fd = os.path.join(music_dir, f)
-    return mplist[random.randint(0, 10)]
+            counter += 1
+
+    print(counter)
+    return mplist[random.randint(0, counter)]
 
 
 if __name__ == '__main__':
