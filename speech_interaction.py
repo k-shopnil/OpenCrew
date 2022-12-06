@@ -66,13 +66,11 @@ def m_indx():
 
 
 def m_indxp():
-    global fd
     music_dir = 'D:\\Music'
     for f in os.listdir(music_dir):
         if f.endswith(".mp3"):
-
-            fd = os.path.join(music_dir, f)
-    return os.path.join(music_dir, fd[4])
+            #fd = os.path.join(music_dir, f)]
+            return os.path.join(music_dir, f)
 
 
 if __name__ == '__main__':
