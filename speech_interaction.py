@@ -5,6 +5,7 @@ import speech_recognition as sr
 import wikipedia
 import webbrowser
 import os
+import random
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -61,16 +62,18 @@ def m_indx():
     mlist = []
     for f in os.listdir(music_dir):
         if f.endswith(".mp3"):
-            mlist.append(os.path.join(music_dir, f))
+            mlist.append(f)
     return mlist
 
 
 def m_indxp():
     music_dir = 'D:\\Music'
+    mplist = []
     for f in os.listdir(music_dir):
         if f.endswith(".mp3"):
-            #fd = os.path.join(music_dir, f)]
-            return os.path.join(music_dir, f)
+            mplist.append(os.path.join(music_dir, f))
+            #fd = os.path.join(music_dir, f)
+    return mplist[random.randint(0, 10)]
 
 
 if __name__ == '__main__':
