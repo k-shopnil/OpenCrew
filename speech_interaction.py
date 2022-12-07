@@ -24,7 +24,7 @@ def greetings():
     if 5 <= hour < 12:
         print("Good morning.")
         speak("Good morning.")
-    elif 12 <= hour < 6:
+    elif 12 <= hour < 18:
         print("Good afternoon.")
         speak("Good afternoon.")
     else:
@@ -85,6 +85,7 @@ if __name__ == '__main__':
     while True:
         query = command().lower()
         # command()
+
         if 'wikipedia' in query:
             speak("Searching Wikipedia.")
             query = query.replace('wikipedia', "")
@@ -92,6 +93,9 @@ if __name__ == '__main__':
             speak("According to Wikipedia, ")
             print(result)
             speak(result)
+
+        elif 'hello' in query:
+            speak("Hello sir. How may I help you?")
 
         elif 'youtube' in query:
             webbrowser.open("www.youtube.com")
@@ -107,17 +111,11 @@ if __name__ == '__main__':
             if 'yes' in confrm:
                 speak("Sure. Here you go.")
                 os.startfile(m_indxp())
-            else:
+            elif 'no' or 'cancel' in confrm:
                 speak("As you wish.")
-                continue
-
-        elif 'hello' or 'hey' in query:
-            speak("Hello sir. How may I help you?")
-
-        elif 'stop' or 'shutdown' in query:
-            print("Alright.")
-            speak("Alright.")
-            break
+                pass
+            else:
+                break
 
         elif "your name" in query:
             speak("My name is Sigrun. And I am a part of the project OpenCrew.")
@@ -126,6 +124,14 @@ if __name__ == '__main__':
             strTime = datetime.datetime.now().strftime("%I : %M %p")
             print(strTime)
             speak(f"It's {strTime} right now.")
+
+        elif 'stop' or 'shutdown' in query:
+            print("Alright.")
+            speak("Alright.")
+            break
+
+        else:
+            break
 
 
 
