@@ -3,8 +3,9 @@
  and how to later append a value to that variable key.
  variables,strings,keys | tuples,dict - are similar
 '''
-import  requests
+import requests
 import json
+
 app_key = '70af5239f6b20becd18a2e92e7cbe724'
 language = 'en-gb'
 app_id = '9f0905e0'
@@ -26,27 +27,26 @@ while True:
         if conf == "yes":
             FF = str(input("What is it? \n"))
             abbr["query"] = FF
-            print(str(nquery)+" means " + abbr["query"] + ".")
+            print(str(nquery) + " means " + abbr["query"] + ".")
         else:
             conf2 = str(input("Should I look it online for you?\n").lower())
-            if conf2=="yes":
-                url = 'https://od-api.oxforddictionaries.com/api/v2/entries/'  + language + '/'  + nquery.lower()
-                r = requests.get(url, headers = {'app_id' : app_id, 'app_key' : app_key})
+            if conf2 == "yes":
+                url = 'https://od-api.oxforddictionaries.com/api/v2/entries/' + language + '/' + nquery.lower()
+                r = requests.get(url, headers={'app_id': app_id, 'app_key': app_key})
                 if r:
-                 mean_json = r.json()
-                 mean_list = []
+                    mean_json = r.json()
+                    mean_list = []
 
-                 for result in mean_json['results']:
-                  for lexicalEntry in result['lexicalEntries']:
-                   for entry in lexicalEntry['entries']:
-                    for sense in entry['senses']:
-                      mean_list.append(sense['definitions'][0])
+                    for result in mean_json['results']:
+                        for lexicalEntry in result['lexicalEntries']:
+                            for entry in lexicalEntry['entries']:
+                                for sense in entry['senses']:
+                                    mean_list.append(sense['definitions'][0])
 
                 print(nquery + " stands for:")
                 for i in mean_list:
-                  print(i)
+                    print(i)
                 else:
-                 print("Extremely sorry.I didn't find anything.\n")
+                    print("Extremely sorry.I didn't find anything.\n")
             else:
-             print("As you wish,sire.\n")
-
+                print("As you wish,sire.\n")
