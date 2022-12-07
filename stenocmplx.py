@@ -1,8 +1,3 @@
-'''
- here we learn how to add a variable in a dictionary.
- and how to later append a value to that variable key.
- variables,strings,keys | tuples,dict - are similar
-'''
 import requests
 import json
 app_key = '70af5239f6b20becd18a2e92e7cbe724'
