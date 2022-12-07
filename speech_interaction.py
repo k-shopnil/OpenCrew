@@ -6,6 +6,7 @@ import wikipedia
 import webbrowser
 import os
 import random
+from stenocmplt import stenoeng
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -103,6 +104,14 @@ if __name__ == '__main__':
             os.startfile('C:\\Program Files\WindowsApps\SpotifyAB.SpotifyMusic_1.199.878.0_x86__zpdnekdrzrea0\Spotify.exe')
         elif 'open google' in query:
             webbrowser.open("www.google.com")
+
+        elif 'full form' in query:
+            speak("Since I'm not sure of what shorthand you have just asked for, can you kindly type it out "
+                  "below?")
+            print("Please type below:")
+            inp = str(input())
+            res = stenoeng(inp)
+            speak(f"{inp} stands for {res}")
 
         elif 'music' in query:
             print(m_indx())
